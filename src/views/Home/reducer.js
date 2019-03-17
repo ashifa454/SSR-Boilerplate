@@ -1,8 +1,6 @@
 import { fromJS } from "immutable";
 
-export const initialState = fromJS({
-  username: ""
-});
+export const initialState = fromJS({});
 
 function homeReducer(state = initialState, action) {
   switch (action.type) {

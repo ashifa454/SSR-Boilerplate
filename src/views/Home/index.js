@@ -5,8 +5,10 @@ import { createStructuredSelector } from "reselect";
 import injectReducer from "../../utils/injectReducer";
 import injectSaga from "../../utils/injectSaga";
 import reducer from "./reducer";
+import { Link } from "react-router-dom";
 import saga from "./saga";
 import Head from "../../Components/Head";
+import { Loading } from "../../Components/Layout";
 
 class Home extends Component {
   render() {
@@ -15,7 +17,9 @@ class Home extends Component {
     return (
       <Fragment>
         <Head />
+        <Loading />
         HELLO WORLD
+        <Link to="/en/about">About</Link>
       </Fragment>
     );
   }
@@ -30,10 +34,10 @@ const withConnect = connect(
   mapStateToProps,
   mapDispatchToProps
 );
-// const withReducer = injectReducer({ key: "home", reducer });
+const withReducer = injectReducer({ key: "home", reducer });
 const withSaga = injectSaga({ key: "home", saga });
 export default compose(
-  // withReducer,
+  withReducer,
   withSaga,
   withConnect
 )(Home);

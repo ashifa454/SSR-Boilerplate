@@ -1,8 +1,6 @@
 import React, { Fragment } from "react";
 import universal from "react-universal-component";
-import GoogleTagManager from "../Components/GoogleTagManager";
 import Head from "../Components/Head";
-import Footer from "../Components/Footer";
 import { Route, Switch, Redirect } from "react-router";
 import { RedirectWithStatus } from "../Components/RedirectStatus";
 import { Loading } from "../Components/Layout";
@@ -12,7 +10,8 @@ const UniversalComponent = universal(
   props => import(`../Views/${props.page}`),
   {
     loading: () => <Loading />,
-    ignoreBabelRename: true
+    ignoreBabelRename: true,
+    loadingTransition: true
   }
 );
 
