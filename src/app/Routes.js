@@ -8,8 +8,6 @@ import { RedirectWithStatus } from "../Components/RedirectStatus";
 import { Loading } from "../Components/Layout";
 import "../assets/css/styles.css";
 
-const isProd = process.env.NODE_ENV === "production";
-
 const UniversalComponent = universal(
   props => import(`../Views/${props.page}`),
   {
@@ -20,7 +18,6 @@ const UniversalComponent = universal(
 
 export default ({ staticContext, lang }) => (
   <Fragment>
-    {isProd ? <GoogleTagManager gtmId="GTM-WFTXGC8" /> : ""}
     <Head />
     <Switch>
       <Route
