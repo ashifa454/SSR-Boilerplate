@@ -9,7 +9,12 @@ import { Link } from "react-router-dom";
 import saga from "./saga";
 import Head from "../../Components/Head";
 import { Loading } from "../../Components/Layout";
-import "./style.scss";
+/**
+ * Import SaSS Dynamically Only when Browser is Available
+ */
+if (process.env.BROWSER) {
+  require("./style.scss");
+}
 
 class Home extends Component {
   render() {
