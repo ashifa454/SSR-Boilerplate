@@ -21,13 +21,6 @@ export default ({ staticContext, lang }) => (
     <Switch>
       <Route
         exact
-        path="/:lang"
-        render={routeProps => (
-          <UniversalComponent page="Home" {...routeProps} />
-        )}
-      />
-      <Route
-        exact
         path="/:lang/about"
         render={routeProps => (
           <UniversalComponent page="About" {...routeProps} />
