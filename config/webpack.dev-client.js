@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   name: "client",
+  target: "web",
   entry: {
     vendor: ["react", "react-dom"],
     main: [
@@ -84,10 +85,7 @@ module.exports = {
             loader: "css-loader"
           },
           {
-            loader: "sass-loader",
-            options: {
-              includePaths: ["absolute/path/a", "absolute/path/b"]
-            }
+            loader: "sass-loader"
           }
         ]
       }
@@ -101,6 +99,7 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("development"),
+        BROWSER: true,
         WEBPACK: true
       }
     }),

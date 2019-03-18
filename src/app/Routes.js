@@ -3,17 +3,15 @@ import universal from "react-universal-component";
 import Head from "../Components/Head";
 import { Route, Switch, Redirect } from "react-router";
 import { RedirectWithStatus } from "../Components/RedirectStatus";
-import { Loading } from "../Components/Layout";
 import "../assets/css/styles.css";
 
-const UniversalComponent = universal(
-  props => import(`../Views/${props.page}`),
-  {
-    loading: () => <Loading />,
-    ignoreBabelRename: true,
-    loadingTransition: true
-  }
-);
+const UniversalComponent = process.env.BROWSER
+  ? universal(props => import(`../Views/${props.page}`), {
+      loading: () => <div>LOADING</div>,
+      ignoreBabelRename: true,
+      loadingTransition: true
+    })
+  : universal();
 
 export default ({ staticContext, lang }) => (
   <Fragment>

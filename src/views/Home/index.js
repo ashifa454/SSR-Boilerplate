@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import saga from "./saga";
 import Head from "../../Components/Head";
 import { Loading } from "../../Components/Layout";
+import "./style.scss";
 
 class Home extends Component {
   render() {
@@ -17,8 +18,7 @@ class Home extends Component {
     return (
       <Fragment>
         <Head />
-        <Loading />
-        HELLO WORLD
+        <div className="demo">HELLO WORLD</div>
         <Link to="/en/about">About</Link>
       </Fragment>
     );
