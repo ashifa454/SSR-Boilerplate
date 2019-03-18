@@ -4,13 +4,27 @@ import Head from "../Components/Head";
 import { Route, Switch, Redirect } from "react-router";
 import { RedirectWithStatus } from "../Components/RedirectStatus";
 import { Loading } from "../Components/Layout";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 import "../assets/css/styles.css";
 
 const UniversalComponent = universal(
   props => import(`../Views/${props.page}`),
   {
-    loading: () => <Loading />,
+    loading: () => {
+      if (process.env.BROWSER) {
+        NProgress.start();
+        return <></>;
+      }
+    },
+    onLoad: () => {
+      if (process.env.BROWSER) {
+        NProgress.done();
+      }
+    },
     ignoreBabelRename: true,
+    alwaysDelay: true,
+    minDelay: 1000,
     loadingTransition: true
   }
 );

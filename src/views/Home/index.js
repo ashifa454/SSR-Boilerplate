@@ -17,6 +17,9 @@ if (process.env.BROWSER) {
 }
 
 class Home extends Component {
+  handleClick = () => {
+    NProgress.start();
+  };
   render() {
     const { lang } = this.props.match.params;
 
@@ -24,6 +27,7 @@ class Home extends Component {
       <Fragment>
         <Head />
         <div className="demo">HELLO WORLD</div>
+        <button onClick={this.handleClick}>START LOADING</button>
         <Link to="/en/about">About</Link>
       </Fragment>
     );
