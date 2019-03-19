@@ -23,8 +23,6 @@ const UniversalComponent = universal(
       }
     },
     ignoreBabelRename: true,
-    alwaysDelay: true,
-    minDelay: 1000,
     loadingTransition: true
   }
 );

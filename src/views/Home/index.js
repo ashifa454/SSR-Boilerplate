@@ -21,14 +21,10 @@ class Home extends Component {
     NProgress.start();
   };
   render() {
-    const { lang } = this.props.match.params;
-
     return (
       <Fragment>
         <Head />
-        <div className="demo">HELLO WORLD</div>
-        <button onClick={this.handleClick}>START LOADING</button>
-        <Link to="/en/about">About</Link>
+        <Link to="/en/about">About 2</Link>
       </Fragment>
     );
   }
