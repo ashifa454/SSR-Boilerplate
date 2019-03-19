@@ -87,7 +87,7 @@
 	},
 	"scripts": {
 		"prod": "NODE_ENV=production node server/main.js",
-		"dev": "NODE_ENV=development nodemon --watch src --watch config --inspect server/main.js",
+		"dev": "NODE_ENV=development node --inspect server/main.js",
 		"lint:css": "stylelint src/**/*.css",
 		"lint:js": "eslint src src/**/*.js",
 		"lint:fix": "eslint src src/**/*.js --fix",
